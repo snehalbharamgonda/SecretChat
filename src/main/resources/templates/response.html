@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title> Response Page </title>
+	</head>
+	
+	<style>
+	
+		body {
+			background-color: black;
+			color: white;
+		}
+		
+		#main{
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+		}
+		
+		#container{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			border: 1px solid white;
+			padding: 20px;
+			border-radius: 12px;
+		}
+	
+		a{
+			color: white;
+		}
+		
+		button{
+		font-size: 15px;
+		height: 40px;
+		width: 100px;
+		letter-spacing: 2px;
+		border-radius: 8px;
+		border: none;
+		cursor: pointer;
+		}
+	
+	</style>
+	
+	<body>
+	
+		<div id= "main">
+			<div id= "container">
+				<p th:text = "${title}" ></p>
+				<p th:text = "${msg}"></p>
+				<a th:href="@{/}">
+        			<button type="button">Go Back</button>
+    			</a>
+				
+			</div>
+		</div>
+		
+	</body>
+	
+
+</html>

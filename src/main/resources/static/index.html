@@ -1,0 +1,212 @@
+<html>
+	<head>
+		<title>Secret Chat Application</title>
+	</head>
+	
+	<style>
+		body {
+			background-color: black;
+			color: white;
+		}
+	
+	header {
+		width: 260px;
+		background-color: cyan;
+		border-radius: 12px;
+		box-shadow: 1px 2px 5px white;
+		margin: 30px auto;   
+    	text-align: center;
+    	padding: 10px;
+	}
+	
+	header>p{
+		margin: 0;
+		padding: 10px;
+		color: black;
+		font-size: 30px;
+		letter-spacing: 2px;
+	}
+	
+	#main{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	#container{
+		display: flex;
+		row-gap: 30px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		
+	}
+	
+	#encode-btn, #decode-btn{
+		cursor: pointer;
+		width: 70px;
+		height: 32px;
+		font-size: 15px;
+		border: none;
+		border-radius: 8px;
+	}
+	
+	#encode-btn{
+		background-color: green;
+		color: white;
+	}
+	
+	#encode-form{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid white;
+		padding: 30px;
+		border-radius: 20px;
+		row-gap: 15px;
+	}
+	
+	#encode-form textarea{
+		width: 300px;
+		height: 60px;
+	}
+	
+	#encode-form textarea::placeholder {
+    color: gray;
+    opacity: 1;
+}
+	
+	#encode-form input{
+		width: 300px;
+		height: 30px;
+		border-radius: 7px;
+		font-size: 15px;
+		padding-left: 12px;
+		box-shadow: 1px 2px 5px blue;
+	}
+	
+	#decode-form{
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid white;
+		padding: 30px;
+		border-radius: 20px;
+		row-gap: 15px;
+		
+	}
+	
+	#decode-form textarea{
+		width: 300px;
+		height: 60px;
+	}
+	
+	#decode-form input{
+		width: 300px;
+		height: 30px;
+		border-radius: 7px;
+		font-size: 15px;
+		padding-left: 12px;
+		box-shadow: 1px 2px 5px blue;
+		
+	}
+	
+	#buttons{
+		display: flex;
+		column-gap: 60px;
+	}
+	
+	form button{
+		font-size: 15px;
+		height: 32px;
+		width: 80px;
+		letter-spacing: 2px;
+		border-radius: 8px;
+		border: none;
+		cursor: pointer;
+	}
+	
+	</style>
+	
+	<body>
+		<header>
+			<p>Secret Chat</p>
+		</header>
+		
+		<div id= "main">
+			<div id="container">
+				<div id= "buttons">
+					<button id= "encode-btn" onclick="encode()"> Encode </button>
+					<button id= "decode-btn" onclick="decode()"> Decode </button>
+				
+				</div>
+			
+				<form action="encrypt" id= "encode-form" method="post">
+					<h1>Encode your message</h1>
+					<textarea name="actual"
+						placeholder="Enter your message here..." ></textarea>
+					 <input 
+					 	name="password"
+					 	required="required"
+					 	type= "password"
+					 	placeholder="enter your password here"
+					 />
+					 
+					 <!-- <input 
+					 readonly="readonly"
+					 	type= "text"
+					 	placeholder="Your encrypted message will appear here"
+					 /> -->
+					 
+					 <button>Encrypt</button>
+					 
+				</form>
+				
+				<form action="decrypt" method="post" id="decode-form">
+					<h1>Decode your message</h1>
+					<textarea name="secret" placeholder="Enter your encrypted message here..."></textarea>
+					 <input 
+					 	name="password"
+					 	required="required"
+					 	type= "password"
+					 	placeholder="enter your password here"
+					 />
+					 
+					 <button>Decrypt</button>
+				</form>
+			</div>
+		</div>
+		
+		
+		<script>
+			function encode(){
+				let d_btn = document.getElementById("decode-btn")
+				d_btn.style.backgroundColor = "white";
+				d_btn.style.color = "black";
+				
+				let e_btn = document.getElementById("encode-btn")
+				e_btn.style.backgroundColor = "green";
+				e_btn.style.color = "white";
+				
+				document.getElementById("decode-form").style.display = "none"
+				document.getElementById("encode-form").style.display = "flex"
+				
+			}
+			
+			function decode(){
+				let d_btn = document.getElementById("decode-btn")
+				d_btn.style.backgroundColor = "green";
+				d_btn.style.color = "white";
+				
+				let e_btn = document.getElementById("encode-btn")
+				e_btn.style.backgroundColor = "white";
+				e_btn.style.color = "black";
+				
+				document.getElementById("decode-form").style.display = "flex"
+				document.getElementById("encode-form").style.display = "none"
+			}
+		</script>
+	</body>
+</html>
